@@ -1,0 +1,236 @@
+/* Kolory i zmienne */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --accent-color: #ffc107; /* Dodany kolor akcentowy */
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --dark-bg-color: #181818;
+    --dark-text-color: #e4e4e4;
+    --card-bg-color: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --border-color: #ddd; /* Dodany kolor do subtelnych obramowań */
+    --hover-color: #e9ecef; /* Kolor podświetlenia przycisków */
+    --font-family: 'Arial', sans-serif;
+    --font-heading: 'Montserrat', sans-serif; /* Nowy font do nagłówków */
+    --transition-speed: 0.3s; /* Stała dla czasu animacji */
+}
+
+body, .sidebar, .card, header {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Resetowanie stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0;
+}
+
+#header-info {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.toggle-mode {
+    font-size: 1.4rem;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.toggle-mode:hover {
+    transform: rotate(20deg);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Stylowanie przycisków */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);            
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+button:active {
+    transform: scale(0.98);
+    background-color: var(--primary-color);
+}
+
+/* Stylowanie trybu ciemnego */
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .sidebar {
+    background-color: #2a2a2a;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .card {
+    background-color: #2a2a2a;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode button {
+    background-color: #0056b3;
+}
+
+body.dark-mode button:hover {
+    background-color: #004080;
+}
+
+/* Przyciski do zmiany trybu */
+.toggle-mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.toggle-mode.dark {
+    color: var(--dark-text-color);
+}
+
+#chatbot { 
+    margin-top: 30px; 
+    background-color: var(--card-bg-color); 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    width: 100%; /* Dodano, aby okno zajmowało całą szerokość */ 
+    box-sizing: border-box; /* Upewnia się, że padding jest uwzględniony w szerokości */ 
+}
+
+#chat-window {
+    height: 350px;
+    overflow-y: auto;
+    background-color: var(--card-bg-color);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#chat-messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #f0f0f0;
+    color: black;
+    align-self: flex-start;
+}
+
+#chat-input {
+    width: calc(100% - 140px);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+#send-message {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#send-message:hover {
+    background-color: #0056b3;
+}
+
+#clear-chat {
+    background-color: var(--accent-color);
+}
+
+#clear-chat:hover {
+    background-color: darkorange;
+}

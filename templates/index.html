@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praca inżynierska Erwin Skowron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Chatbot llama3.2</h1>
+    <div id="header-info"></div>
+    <i class="fas fa-moon toggle-mode" id="toggle-dark-mode"></i>
+</header>
+
+<main>
+    <div id="chatbot">
+        <h2>Chatbot - Zadaj pytanie</h2>
+        <div id="chat-window">
+            <div id="chat-messages"></div>
+        </div>
+        <input type="text" id="chat-input" placeholder="Wpisz pytanie..." />
+        <button id="send-message">Wyślij</button>
+        <button id="clear-chat">Wyczyść</button>
+    </div>
+</main>
+    <script src="/static/js/scripts.js"></script>
+    <script src="/static/js/chatbot.js"></script>
+</body>
+</html>
